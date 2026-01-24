@@ -1,17 +1,52 @@
+LuckyScripts Limited Use License (LLUL) v1.0
 Copyright (c) 2026 LuckyScripts
 
-CONFIDENTIAL / PROPRIETARY 
+IMPORTANT — READ CAREFULLY:
+This license grants you limited rights to use and modify the software. It is NOT an open-source license. If you do not agree to these terms, do not use the software.
 
-Permission is hereby granted to any individual or entity to use this software 
-for the purpose of running it on a FiveM server. 
+1. Definitions
+   - "Licensor" means LuckyScripts (the copyright holder).
+   - "You" or "Licensee" means any individual or entity receiving the Software.
+   - "Software" means the original code, assets, documentation and any modifications or derivatives thereof.
+   - "Distribute" or "Distribution" means making the Software (in source or binary form) available to the public or to third parties outside your organization by re-uploading, posting, publishing, mirroring, sharing on public repositories, forums, websites, Discord servers, marketplaces, or similar channels.
 
-RESTRICTIONS:
-1. Redistribution: You may NOT re-upload, mirror, or distribute this software 
-   (or any modified version of it) to any website, forum, Discord server, 
-   or public repository.
-2. Attribution: You must retain the original author credits in the code and 
-   manifest files.
-3. Commercialization: You may not sell this script or charge for access to 
-   the source code.
+2. Grant of Rights
+   Subject to the terms and conditions below, Licensor hereby grants You a limited, non-exclusive, non-transferable, revocable license to:
+   a) use the Software to run, operate, and maintain FiveM servers that You control;
+   b) view, study, and modify the Software for the purpose of operating such servers and for internal testing and development.
 
-This software is provided "as is", without warranty of any kind.
+3. Modifications and Derivative Works
+   - You may create modifications and derivative works of the Software for your own internal use and to operate your FiveM servers.
+   - All modifications and derivatives remain subject to this license: You may NOT Distribute modified or original Software to the public.
+
+4. Distribution Restrictions (No Reuploading)
+   - You may NOT re-upload, mirror, post, publish, or otherwise Distribute the Software (original or modified) to any public or third-party site, public repository, forum, marketplace, Discord server, or similar public venue.
+   - You may not sell, sublicense, rent, lease, or otherwise commercialize the Software or grant third parties the right to download or obtain source or compiled copies.
+   - You may provide access to the Software to a limited set of authorized administrators/operators solely for operating your private FiveM servers, provided you take reasonable measures to prevent public distribution.
+
+5. Attribution
+   - You must retain the original author credits, copyright notices, and manifest information in all copies of the Software that you maintain (including modified versions kept for internal/server use).
+   - If you remove or obfuscate code for deployment, you must, where practicable, keep author credit in any manifest or metadata associated with the deployment.
+
+6. Third-Party Components
+   - If the Software contains third-party components with their own licenses, those licenses also apply and may impose additional obligations.
+
+7. Termination
+   - This license is effective until terminated. Licensor may terminate the license immediately if You breach any term of this license.
+   - Upon termination, You must cease all use of the Software and destroy or return all copies (source and binary) in your possession or control, except for copies retained only for archival or legal compliance where you must not use or make them accessible.
+
+8. Enforcement & Requests for Permission
+   - If you want to publicly redistribute, publish, or sell the Software or derivatives, you must obtain written permission from Licensor. Contact: (provide contact info in repository/project documentation).
+
+9. No Warranties; Limitation of Liability
+   - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+   - TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR IS NOT LIABLE FOR ANY CLAIMS, DAMAGES OR OTHER LIABILITY ARISING FROM OR IN CONNECTION WITH THE SOFTWARE.
+
+10. Governing Law
+   - This license is governed by the laws of the licensor's jurisdiction (add your jurisdiction here, e.g., "the State/Country of [Your jurisdiction]") without regard to conflict-of-law rules.
+
+11. Miscellaneous
+   - If any provision is held invalid, the remainder of the license remains in force.
+   - This license constitutes the entire agreement between You and Licensor concerning the Software.
+
+END OF LICENSE
