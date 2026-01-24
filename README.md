@@ -1,4 +1,4 @@
-# VTX Nametags
+# Lucky Nametags
 Heres a little nametags script i made, its based off of The Towns nametag script. Be on the lookout tho, ill release my new one soon!
 
 How to add to your server:

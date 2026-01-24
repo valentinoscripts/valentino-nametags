@@ -2,10 +2,10 @@ fx_version 'cerulean'
 
 game 'gta5'
 
-name 'engineer-nametags'
-author 'EngineerVTX'
+name 'lucky-nametags'
+author 'LuckyScripts'
 version '1.0.0'
-description 'Configurable nametags with /tognames, /togids, /mask; ESX/QBCore/QBX compatible; ox_lib notifications.'
+description 'Configurable nametags with /tognames, /mark/friend, /nmask; ESX/QBCore/QBX compatible; ox_lib notifications.'
 
 lua54 'yes'
 

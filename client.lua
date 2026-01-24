@@ -66,14 +66,14 @@ end
 
 AddEventHandler('onClientResourceStart', function(res)
     if res ~= GetCurrentResourceName() then return end
-    TriggerServerEvent('vtx-nametags:server:refreshName')
+    TriggerServerEvent('lucky-nametags:server:refreshName')
 end)
 
 RegisterCommand('tognames', function()
     nametagsEnabled = not nametagsEnabled
     if nametagsEnabled then
         notifyOn()
-        TriggerServerEvent('vtx-nametags:server:refreshName')
+        TriggerServerEvent('lucky-nametags:server:refreshName')
     else
         notifyOff()
     end
@@ -246,12 +246,10 @@ CreateThread(function()
             for _, ply in ipairs(GetActivePlayers()) do
                     local targetPed = GetPlayerPed(ply)
 
-                    -- respect mask
                     local srvId = GetPlayerServerId(ply)
                     local bag = Player(srvId).state
                     if bag and bag.nametagMasked then goto continue end
 
-                    -- skip in vehicle
                     if IsPedInAnyVehicle(targetPed, false) then goto continue end
 
                     local coords = GetEntityCoords(targetPed)
@@ -259,7 +257,7 @@ CreateThread(function()
                     if dist <= Config.MaxDistance then
                         local head = GetPedBoneCoords(targetPed, headBone)
                         local pos = vector3(head.x, head.y, head.z + Config.ZOffset)
-                        -- Line-of-sight: strict raycast from camera to head position
+                        -- I'm fucking tweaking
                         if Config.RequireLineOfSight then
                             local cam = GetGameplayCamCoord()
                             if not hasClearLineOfSight(cam, pos, targetPed) then goto continue end

@@ -2,11 +2,21 @@ local Framework = nil
 local FrameworkName = 'standalone'
 
 CreateThread(function()
+    Wait(100)
+    
     local choice = (type(Config) == 'table' and Config.Framework) or 'auto'
 
     local function tryQBX()
         if GetResourceState('qbx_core') == 'started' then
             local ok, obj = pcall(function() return exports['qbx_core']:GetCoreObject() end)
+            if ok and obj then Framework = obj FrameworkName = 'qbx' return true end
+            ok, obj = pcall(function() return exports['qb-core']:GetCoreObject() end)
+            if ok and obj then Framework = obj FrameworkName = 'qbx' return true end
+        end
+        if GetResourceState('qbox') == 'started' then
+            local ok, obj = pcall(function() return exports['qbox']:GetCoreObject() end)
+            if ok and obj then Framework = obj FrameworkName = 'qbx' return true end
+            ok, obj = pcall(function() return exports['qb-core']:GetCoreObject() end)
             if ok and obj then Framework = obj FrameworkName = 'qbx' return true end
         end
         return false
@@ -28,12 +38,21 @@ CreateThread(function()
         return false
     end
 
-    if choice == 'qbx' then tryQBX()
-    elseif choice == 'qbcore' then tryQB()
-    elseif choice == 'esx' then tryESX()
-    elseif choice == 'standalone' then Framework = nil FrameworkName = 'standalone'
+    if choice == 'qbx' then 
+        tryQBX()
+    elseif choice == 'qbcore' then 
+        tryQB()
+    elseif choice == 'esx' then 
+        tryESX()
+    elseif choice == 'standalone' then 
+        Framework = nil 
+        FrameworkName = 'standalone'
     else
-        if not tryQBX() then if not tryQB() then tryESX() end end
+        if not tryQBX() then 
+            if not tryQB() then 
+                tryESX() 
+            end 
+        end
     end
 end)
 
@@ -49,14 +68,26 @@ AddEventHandler('QBX:Server:OnPlayerLoaded', function(src)
     applyStateBags(src)
 end)
 
+AddEventHandler('qbx:server:playerLoaded', function(src)
+    applyStateBags(src)
+end)
+
+AddEventHandler('qbx_core:server:playerLoaded', function(src)
+    applyStateBags(src)
+end)
+
 local function buildRPName(src)
+    if not Framework then return nil end
+    
     if FrameworkName == 'qbcore' or FrameworkName == 'qbx' then
-        local Player = Framework.Functions and Framework.Functions.GetPlayer and Framework.Functions.GetPlayer(src)
-        if Player and Player.PlayerData and Player.PlayerData.charinfo then
-            local fn = Player.PlayerData.charinfo.firstname or ''
-            local ln = Player.PlayerData.charinfo.lastname or ''
-            local full = (fn .. ' ' .. ln):gsub('^%s*(.-)%s*$', '%1')
-            if full ~= '' then return full end
+        if Framework and Framework.Functions and Framework.Functions.GetPlayer then
+            local Player = Framework.Functions.GetPlayer(src)
+            if Player and Player.PlayerData and Player.PlayerData.charinfo then
+                local fn = Player.PlayerData.charinfo.firstname or ''
+                local ln = Player.PlayerData.charinfo.lastname or ''
+                local full = (fn .. ' ' .. ln):gsub('^%s*(.-)%s*$', '%1')
+                if full ~= '' then return full end
+            end
         end
     elseif FrameworkName == 'esx' then
         local xPlayer = Framework.GetPlayerFromId and Framework.GetPlayerFromId(src)
@@ -80,10 +111,10 @@ local function applyStateBags(src)
     local rpName = buildRPName(src)
     if rpName and rpName ~= '' then
         state:set('rpName', rpName, true)
-        TriggerClientEvent('vtx-nametags:client:setName', -1, src, rpName)
+        TriggerClientEvent('lucky-nametags:client:setName', -1, src, rpName)
     else
         state:set('rpName', nil, true)
-        TriggerClientEvent('vtx-nametags:client:setName', -1, src, nil)
+        TriggerClientEvent('lucky-nametags:client:setName', -1, src, nil)
     end
     if state.nametagMasked == nil then
         state:set('nametagMasked', false, true)
@@ -100,7 +131,7 @@ AddEventHandler('onResourceStart', function(res)
         applyStateBags(tonumber(src))
     end
 end)
-RegisterNetEvent('vtx-nametags:server:refreshName', function()
+RegisterNetEvent('lucky-nametags:server:refreshName', function()
     local src = source
     applyStateBags(src)
 end)
