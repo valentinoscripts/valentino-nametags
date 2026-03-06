@@ -2,8 +2,7 @@ fx_version 'cerulean'
 
 game 'gta5'
 
-name 'lucky-nametags'
-author 'LuckyScripts'
+author 'valentino'
 version '1.0.0'
 description 'Configurable nametags with /tognames, /mark/friend, /nmask; ESX/QBCore/QBX compatible; ox_lib notifications.'
 

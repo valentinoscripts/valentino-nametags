@@ -66,14 +66,14 @@ end
 
 AddEventHandler('onClientResourceStart', function(res)
     if res ~= GetCurrentResourceName() then return end
-    TriggerServerEvent('lucky-nametags:server:refreshName')
+    TriggerServerEvent('valentino-nametags:server:refreshName')
 end)
 
 RegisterCommand('tognames', function()
     nametagsEnabled = not nametagsEnabled
     if nametagsEnabled then
         notifyOn()
-        TriggerServerEvent('lucky-nametags:server:refreshName')
+        TriggerServerEvent('valentino-nametags:server:refreshName')
     else
         notifyOff()
     end
